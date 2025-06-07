@@ -27,5 +27,10 @@ namespace WindowsFormsApp1
 
             this.BackColor = Color.FromArgb(r, g, b);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
