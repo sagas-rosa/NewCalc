@@ -129,5 +129,29 @@ namespace WindowsFormsApp1
 
             textBox1.Text = entrada;
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(entrada) && calc.Operacion != null)
+                {
+                    calc.Valor2 = Convert.ToDouble(entrada);
+                    double resultado = calc.Calcular();
+
+                    textBox1.Text = resultado.ToString();
+                    entrada = resultado.ToString(); // Para seguir calculando si quiere
+                    calc.Operacion = null;
+                    esperandoSegundoValor = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox1.Text = "Error: " + ex.Message;
+                entrada = "";
+                calc.Operacion = null;
+                esperandoSegundoValor = false;
+            }
+        }
     }
 }
